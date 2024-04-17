@@ -11,19 +11,19 @@ class BiliRequest:
         self.cookieManager = CookieManager(cookies_config_path)
         self._cookies = self.cookieManager.get_cookies_str()
         self.headers = headers or {
-            'authority': 'show.bilibili.com',
-            'accept': '*/*',
-            'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6,zh-TW;q=0.5,ja;q=0.4',
-            'cookie': self._cookies,
-            'referer': "https://show.bilibili.com/",
-            'content-type': 'application/x-www-form-urlencoded',
-            'sec-ch-ua': '"Microsoft Edge";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"Windows"',
-            'sec-fetch-dest': 'empty',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-site': 'same-origin',
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0'
+            "authority": "show.bilibili.com",
+            "accept": "*/*",
+            "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6,zh-TW;q=0.5,ja;q=0.4",
+            "cookie": self._cookies,
+            "referer": "https://show.bilibili.com/",
+            "content-type": "application/x-www-form-urlencoded",
+            "sec-ch-ua": '"Microsoft Edge";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Windows"',
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "user-agent": "bili-universal/76700100 CFNetwork/1410.0.3 Darwin/22.6.0 os/ios model/iPhone 12 mini mobi_app/iphone build/76700100 osVer/16.7.2 network/1 channel/AppStore;tf:cm",
         }
 
     def get(self, url, params=None):

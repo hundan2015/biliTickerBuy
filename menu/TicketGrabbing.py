@@ -226,13 +226,22 @@ class TicketGrabbingApp:
                     continue
 
                 ## 到此处, 就算网不好, 必然有token
-
+                print(res.json()["data"]["shield"])
                 ## 确定有token时候, 再去检查时候有验证码
                 if res.json()["data"]["shield"]["verifyMethod"]:
                     result = {"success": False, "status": f"遇到验证码：{res.json()['data']['shield']['naUrl']}"}
                     self.display_status(result)
-                    naUrl = res.json()["data"]["shield"]["naUrl"]
-                    self.webUtil.driver.get(naUrl)
+                    shit =res.json()["data"]["shield"]
+                    print(shit)
+                    if shit["naUrl"]:
+                        self.webUtil.driver.get(shit["naUrl"])
+                    elif shit["h5Url"]:
+                        self.webUtil.driver.get(shit["h5Url"])
+                    elif shit["pcUrl"]:
+                        self.webUtil.driver.get(shit["pcUrl"])
+
+                    # naUrl = res.json()["data"]["shield"]["naUrl"]
+                    # self.webUtil.driver.get(naUrl)
                 config_content["token"] = res.json()["data"]["token"]
                 ## 已经完成验证码 ,下面应该不断的处理订单的生成
 
